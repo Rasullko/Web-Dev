@@ -1,0 +1,20 @@
+﻿<nav class="navbar">
+  <div class="nav-inner">
+    <a routerLink="/home" class="nav-brand" (click)="closeMenu()">
+      <span class="brand-icon">â—ˆ</span>
+      <span class="brand-text">Album<em>Browser</em></span>
+    </a>
+    <button class="hamburger" (click)="toggleMenu()" [class.open]="menuOpen">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" [class.open]="menuOpen">
+      <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a></li>
+      <li><a routerLink="/albums" routerLinkActive="active" (click)="closeMenu()">Albums</a></li>
+    </ul>
+  </div>
+</nav>
+<main><router-outlet></router-outlet></main>
+<footer class="site-footer">
+  <div class="footer-inner">AlbumBrowser â€” Web Development Lab 6</div>
+</footer>

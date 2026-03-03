@@ -1,0 +1,35 @@
+﻿<div class="photos page-container">
+  <div class="breadcrumb">
+    <button class="btn btn-secondary" (click)="goBack()">â† Back to Album #{{ albumId }}</button>
+    @if (!loading) { <span class="path">Albums / Album #{{ albumId }} / Photos</span> }
+  </div>
+
+  @if (!loading && !error) {
+    <div class="photos-header">
+      <h1>Photo <em>Gallery</em></h1>
+      <p>{{ photos.length }} photos in album #{{ albumId }}</p>
+    </div>
+  }
+
+  @if (loading) { <div class="loading-container"><div class="spinner"></div><span>Loading photos...</span></div> }
+  @if (error) { <div class="state"><p>{{ error }}</p><button class="btn btn-secondary" (click)="goBack()">Go Back</button></div> }
+
+  @if (!loading && !error && photos.length === 0) {
+    <div class="state"><p>No photos found.</p></div>
+  }
+  @if (!loading && !error && photos.length > 0) {
+    <div class="grid">
+      @for (photo of photos; track photo.id) {
+        <div class="photo-card" (mouseenter)="setHovered(photo.id)" (mouseleave)="setHovered(null)">
+          <div class="img-wrap">
+            <img [src]="photo.thumbnailUrl" [alt]="photo.title" loading="lazy" />
+            <div class="overlay" [class.visible]="hoveredId === photo.id">
+              <span>#{{ photo.id }}</span>
+            </div>
+          </div>
+          <p class="photo-title">{{ photo.title }}</p>
+        </div>
+      }
+    </div>
+  }
+</div>

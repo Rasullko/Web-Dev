@@ -1,0 +1,17 @@
+﻿.home { padding: 60px 24px 80px; animation: fadeInUp 0.5s ease; }
+.hero { margin-bottom: 80px; }
+.eyebrow { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #55546a; margin-bottom: 24px; }
+h1 { font-family: Georgia, serif; font-size: clamp(48px, 7vw, 80px); font-weight: 300; line-height: 1; color: #ede8df; margin-bottom: 20px; }
+h1 em { font-style: italic; color: #e8b84b; }
+.desc { max-width: 500px; font-size: 15px; line-height: 1.7; color: #8a8799; margin-bottom: 36px; }
+.actions { display: flex; gap: 12px; margin-bottom: 56px; flex-wrap: wrap; }
+.stats { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+.stat { display: flex; flex-direction: column; gap: 2px; }
+.num { font-family: Georgia, serif; font-size: 32px; font-weight: 600; color: #ede8df; line-height: 1; }
+.label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #55546a; }
+.divider { width: 1px; height: 36px; background: #2a2a38; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.feature-card { padding: 28px; background: #16161e; border: 1px solid #2a2a38; border-radius: 8px; transition: all 0.2s; }
+.feature-card:hover { border-color: rgba(232,184,75,0.3); transform: translateY(-3px); }
+.feature-card h3 { font-family: Georgia, serif; font-size: 20px; color: #ede8df; margin-bottom: 10px; }
+.feature-card p { font-size: 14px; line-height: 1.7; color: #8a8799; }

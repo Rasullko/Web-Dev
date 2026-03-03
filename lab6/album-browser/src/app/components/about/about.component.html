@@ -1,0 +1,35 @@
+﻿<div class="about page-container">
+  <h1>About <em>AlbumBrowser</em></h1>
+  <p class="subtitle">Web Development Â· Lab 6 Â· Routing &amp; HTTP</p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Project Overview</h2>
+      <p>AlbumBrowser is a multi-view Single Page Application built with Angular 17. It demonstrates client-side routing, HTTP communication via HttpClient, and reactive data management with RxJS Observables.</p>
+      <p>Data is fetched from the <strong>JSONPlaceholder</strong> public REST API. Full CRUD operations are implemented: Read (list &amp; detail), Update (edit title), Delete (remove from list).</p>
+      <p>All HTTP calls are centralized in <code>AlbumService</code> â€” components never call HttpClient directly.</p>
+    </div>
+    <div>
+      <div class="card">
+        <h2>Project Info</h2>
+        <dl>
+          <dt>Course</dt><dd>Web Development</dd>
+          <dt>Lab</dt><dd>Lab 6 â€” Routing &amp; HTTP</dd>
+          <dt>Framework</dt><dd>Angular 17 (Standalone)</dd>
+          <dt>API</dt><dd><a href="https://jsonplaceholder.typicode.com" target="_blank">JSONPlaceholder â†—</a></dd>
+        </dl>
+      </div>
+      <div class="card tech">
+        <h2>Tech Stack</h2>
+        <ul>
+          <li><strong>Angular Router</strong> â€” 6 routes, route params</li>
+          <li><strong>HttpClient</strong> â€” Observable-based HTTP</li>
+          <li><strong>RxJS</strong> â€” Reactive streams</li>
+          <li><strong>TypeScript</strong> â€” Typed interfaces</li>
+          <li><strong>AlbumService</strong> â€” Centralized API layer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <a routerLink="/albums" class="btn btn-primary">Browse Albums â†’</a>
+</div>

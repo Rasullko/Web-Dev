@@ -1,0 +1,33 @@
+﻿<div class="albums page-container">
+  <div class="header">
+    <h1>Albums <em>Library</em></h1>
+    @if (!loading && !error) { <span class="count">{{ albums.length }} albums</span> }
+  </div>
+
+  @if (loading) {
+    <div class="loading-container"><div class="spinner"></div><span>Fetching albums...</span></div>
+  }
+  @if (error) {
+    <div class="state"><p>{{ error }}</p><button class="btn btn-secondary" (click)="loadAlbums()">Try Again</button></div>
+  }
+  @if (!loading && !error && albums.length === 0) {
+    <div class="state"><p>No albums found.</p><button class="btn btn-secondary" (click)="loadAlbums()">Reload</button></div>
+  }
+  @if (!loading && !error && albums.length > 0) {
+    <div class="grid">
+      @for (album of albums; track album.id) {
+        <div class="card" [class.deleting]="isDeleting(album.id)">
+          <a [routerLink]="['/albums', album.id]" class="card-link">
+            <span class="id-badge">ID {{ album.id }}</span>
+            <p class="user">User #{{ album.userId }}</p>
+            <h3 class="title">{{ album.title }}</h3>
+            <span class="hint">View Details â†’</span>
+          </a>
+          <button class="del-btn" (click)="deleteAlbum(album.id, $event)" [disabled]="isDeleting(album.id)" title="Delete">
+            @if (isDeleting(album.id)) { <span class="del-spin"></span> } @else { âœ• }
+          </button>
+        </div>
+      }
+    </div>
+  }
+</div>

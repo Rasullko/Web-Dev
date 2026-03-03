@@ -1,0 +1,51 @@
+﻿<div class="detail page-container">
+  <div class="breadcrumb">
+    <button class="btn btn-secondary" (click)="goBack()">â† Back to Albums</button>
+    @if (!loading && album) { <span class="path">Albums / Album #{{ album.id }}</span> }
+  </div>
+
+  @if (loading) { <div class="loading-container"><div class="spinner"></div><span>Loading album...</span></div> }
+  @if (error) { <div class="state"><p>{{ error }}</p><button class="btn btn-secondary" (click)="goBack()">Go Back</button></div> }
+
+  @if (!loading && !error && album) {
+    <div class="layout">
+      <div class="main">
+        <div class="album-header">
+          <div class="badges">
+            <span class="badge">Album #{{ album.id }}</span>
+            <span class="badge">User #{{ album.userId }}</span>
+          </div>
+          <h1 class="album-title">{{ album.title }}</h1>
+        </div>
+
+        <div class="edit-card">
+          <div class="edit-head">
+            <h2>Edit Album Title</h2>
+            <p>Update the title and save your changes.</p>
+          </div>
+          <div class="edit-body">
+            <label for="titleInput">Album Title</label>
+            <input id="titleInput" type="text" [(ngModel)]="editTitle" [disabled]="saving" placeholder="Enter album title..." />
+            <div class="form-actions">
+              <button class="btn btn-primary" (click)="saveTitle()" [disabled]="saving || !editTitle.trim()">
+                @if (saving) { Saving... } @else { Save Changes }
+              </button>
+              @if (saveSuccess) { <span class="success">âœ“ Saved successfully</span> }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="info-card">
+          <h3>Album Info</h3>
+          <dl>
+            <dt>Album ID</dt><dd>{{ album.id }}</dd>
+            <dt>User ID</dt><dd>{{ album.userId }}</dd>
+          </dl>
+        </div>
+        <button class="btn btn-teal photos-btn" (click)="goToPhotos()">View Photos â†’</button>
+      </div>
+    </div>
+  }
+</div>

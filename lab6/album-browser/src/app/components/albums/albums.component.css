@@ -1,0 +1,21 @@
+﻿.albums { padding: 60px 24px 80px; animation: fadeIn 0.4s ease; }
+.header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 12px; }
+h1 { font-family: Georgia, serif; font-size: clamp(32px, 5vw, 56px); font-weight: 300; color: #ede8df; }
+h1 em { font-style: italic; color: #e8b84b; }
+.count { font-size: 12px; color: #55546a; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.card { position: relative; background: #16161e; border: 1px solid #2a2a38; border-radius: 8px; transition: all 0.2s; }
+.card:hover { border-color: rgba(232,184,75,0.3); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+.card.deleting { opacity: 0.4; pointer-events: none; }
+.card-link { display: flex; flex-direction: column; gap: 8px; padding: 20px; text-decoration: none; color: inherit; }
+.id-badge { font-size: 11px; color: #e8b84b; background: rgba(232,184,75,0.07); border: 1px solid rgba(232,184,75,0.15); border-radius: 4px; padding: 3px 8px; width: fit-content; }
+.user { font-size: 11px; color: #55546a; }
+.title { font-family: Georgia, serif; font-size: 16px; color: #ede8df; line-height: 1.4; text-transform: capitalize; }
+.hint { font-size: 11px; color: #55546a; align-self: flex-end; transition: color 0.2s; }
+.card:hover .hint { color: #e8b84b; }
+.del-btn { position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: transparent; border: 1px solid rgba(232,85,106,0.3); border-radius: 4px; color: #e8556a; font-size: 12px; cursor: pointer; opacity: 0; transition: all 0.2s; }
+.card:hover .del-btn { opacity: 1; }
+.del-btn:hover { background: rgba(232,85,106,0.1); }
+.del-spin { width: 12px; height: 12px; border: 1.5px solid rgba(232,85,106,0.3); border-top-color: #e8556a; border-radius: 50%; animation: spin 0.7s linear infinite; }
+.state { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 80px 20px; color: #8a8799; text-align: center; }
+@media (max-width: 600px) { .del-btn { opacity: 1; } .grid { grid-template-columns: 1fr; } }
