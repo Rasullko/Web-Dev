@@ -1,2 +1,0 @@
-
-class Cake(Product):

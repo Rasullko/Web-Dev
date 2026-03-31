@@ -1,0 +1,35 @@
+<main class="main">
+  <nav class="category-nav">
+    <h1 class="page-title">Shop Catalog</h1>
+    <p class="page-subtitle">Choose a category to load products from the Django API.</p>
+
+    <p class="status" *ngIf="isLoadingCategories">Loading categories...</p>
+
+    <app-category-list
+      *ngIf="!isLoadingCategories"
+      [categories]="categories"
+      [selectedCategoryId]="selectedCategoryId"
+      (selectCategory)="onCategorySelect($event)"
+    ></app-category-list>
+  </nav>
+
+  <section class="content">
+    <p class="error-state" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <p class="empty-state" *ngIf="selectedCategoryId === null">
+      Select a category to see products.
+    </p>
+
+    <p class="status" *ngIf="selectedCategoryId !== null && isLoadingProducts">
+      Loading products...
+    </p>
+
+    <app-product-list
+      *ngIf="selectedCategoryId !== null && !isLoadingProducts"
+      [products]="filteredProducts"
+    ></app-product-list>
+  </section>
+</main>
+
+
+<router-outlet></router-outlet>
